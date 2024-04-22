@@ -1,0 +1,124 @@
+/* styles/main.css */
+
+/* Reset default browser styles */
+body{
+    background: url(../images/headphones.png);
+    background-size: cover; /* This ensures the image covers the entire background */
+
+    margin: 0;
+    padding: 0;
+
+}
+h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ 
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Hero Section styles */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+}
+
+/* Main Content Area styles */
+main {
+    padding: 20px;
+}
+
+/* Sidebar styles (Optional) 
+.sidebar {
+    /* Styles for sidebar */
+
+
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+/* CSS for the dropdown menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
