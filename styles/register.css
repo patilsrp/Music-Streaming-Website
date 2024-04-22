@@ -1,4 +1,6 @@
 /* Global styles */
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+
 *,
 *::before,
 *::after {
@@ -158,10 +160,9 @@ body {
 
 .signup-classic {
   h2 {
-    font-size: 16px;
-    font-weight: normal;
-    margin-top: 23px;
-    margin-bottom: 43px;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 40px;
     text-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.1);
   }
 
