@@ -11,6 +11,14 @@ function hide() {
     var p = document.getElementById('pwd');
     p.setAttribute('type', 'password');
 }
+document.addEventListener('DOMContentLoaded', function () {
+  const signUpBtn = document.querySelector('.sign-up');
+
+  signUpBtn.addEventListener('click', function () {
+      window.location.href = 'register.html';
+  });
+});
+
 
 var pwShown = 0;
 
