@@ -7,15 +7,11 @@
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <script src="scripts/login.js"></script>
 </head>
 <body>
     <div class="overlay">
-        <!-- LOGIN FORM by Omar Dsoky -->
-        <form>
-          <!-- Container for items in the form -->
+        <form method="POST" action="login.php"> <!-- Updated method and action -->
           <div class="con">
-            <!-- Start header Content -->
             <header class="head-form">
               <h2>Log In</h2>
               <p>Login here using your username and password</p>
@@ -26,35 +22,36 @@
               <span class="input-item">
                 <i class="fa fa-user-circle"></i>
               </span>
-              <!-- Username Input -->
-              <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
+              <input class="form-input" id="username" name="username" type="text" placeholder="UserName" required>
               <br>
+
               <!-- Password -->
               <span class="input-item">
                 <i class="fa fa-key"></i>
               </span>
-              <!-- Password Input -->
-              <input class="form-input" type="password" placeholder="Password" id="pwd" name="password" required>
-              <!-- Show/hide password -->
-              <span>
-                <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
-              </span>
+              <input class="form-input" type="password" placeholder="Password" id="password" name="password" required>
               <br>
+
+              <!-- Remember Me checkbox -->
+              <label>
+                <input type="checkbox" name="remember"> Remember Me
+              </label>
+              <br>
+
               <!-- LogIn button -->
-              <button class="log-in">Log In</button>
+              <button class="log-in" type="submit">Log In</button>
             </div>
-            <!-- Other buttons -->
+
             <div class="other">
-              <!-- Forgot Password button -->
               <button class="btn submits frgt-pass">Forgot Password</button>
-              <!-- Sign Up button -->
+            
               <button class="btn submits sign-up">Sign Up
-                <!-- Sign Up font icon -->
-                <i class="fa fa-user-plus" aria-hidden="true"></i>
-              </button>
+                <i class="fa fa-user-plus" aria-hidden="true"></i></button>
             </div>
           </div>
         </form>
       </div>
+      <script src="scripts/login.js"></script>
+
 </body>
 </html>

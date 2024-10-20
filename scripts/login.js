@@ -17,12 +17,5 @@ signUpBtn.addEventListener('click', function () {
     window.location.href = 'register.html';
 });
 
-document.getElementById("eye").addEventListener("click", function() {
-  const passwordField = document.getElementById("pwd");
-  if (passwordField.type === "password") {
-    passwordField.type = "text";
-  } else {
-    passwordField.type = "password";
-  }
-});
+
 });

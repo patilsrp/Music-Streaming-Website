@@ -1,66 +1,53 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector(".form");
+// DOM Elements
+const form = document.querySelector('form');  // Ensure the form exists
+const emailInput = document.getElementById('email');  // Correct the reference
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('pwd');
 
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
+// Ensure the form is correctly selected
+if (form) {
+    // Form validation and submission to the backend (signup.php)
+    form.addEventListener('submit', function (e) {
+        // Perform client-side validation
+        const email = emailInput.value;  // Correct the email input reference
+        const username = usernameInput.value;
+        const password = passwordInput.value;
 
-        let isValid = true;
-        const usernameInput = form.querySelector('input[type="text"]');
-        const emailInput = form.querySelector('input[type="email"]');
-        const passwordInput = form.querySelector('input[type="password"]');
-        const errorMessages = [];
-
-        // Validation functions
-        const validateUsername = () => {
-            const username = usernameInput.value.trim();
-            if (!username) {
-                isValid = false;
-                errorMessages.push("Username is required.");
-            }
-        };
-
-        const validateEmail = () => {
-            const email = emailInput.value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email)) {
-                isValid = false;
-                errorMessages.push("Please enter a valid email address.");
-            }
-        };
-
-        const validatePassword = () => {
-            const password = passwordInput.value.trim();
-            // Add password strength validation logic here if needed
-            if (!password) {
-                isValid = false;
-                errorMessages.push("Password is required.");
-            }
-        };
-
-        validateUsername();
-        validateEmail();
-        validatePassword();
-
-        if (isValid) {
-            // Here you can submit the form data to a server or process it locally
-            console.log("Form is valid. Submitting...");
-            // For example:
-            const formData = {
-                username: usernameInput.value.trim(),
-                email: emailInput.value.trim(),
-                password: passwordInput.value.trim()
-            };
-            console.log("Form Data:", formData);
-            // Clear the form after successful submission
-            form.reset();
-            // Redirect to index.html after successful validation and submission
-            console.log("Redirecting to index.html...");
-            window.location.href = "../index.html"; // Make sure this path is correct
+        // Check for validation
+        if (!validateEmail(email)) {
+            e.preventDefault();  // Prevent form submission
+            alert('Please enter a valid email address.');
+        } else if (username.length < 3) {
+            e.preventDefault();  // Prevent form submission
+            alert('Username must be at least 3 characters long.');
+        } else if (password.length < 6) {
+            e.preventDefault();  // Prevent form submission
+            alert('Password must be at least 6 characters long.');
         } else {
-            // Display error messages to the user
-            console.error("Validation errors:", errorMessages.join(" "));
-            // You can display these errors in the DOM or using alerts/toasts
-            // For simplicity, let's log them to the console here
+            // No need for preventDefault here, as we're submitting the form to the backend (signup.php)
+            // The form will be submitted and handled by the PHP backend
+            // If you want to use AJAX to handle the submission without reloading the page, you would need to manually handle it.
         }
     });
+} else {
+    console.error('Form not found!');
+}
+
+// Validation function for email
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return re.test(email);
+}
+
+// Event listener for the login button (optional functionality)
+document.addEventListener('DOMContentLoaded', function () {
+    const loginButton = document.querySelector('button.log-in');
+    
+    if (loginButton) {
+        loginButton.addEventListener('click', function () {
+            window.location.href = 'login.html';  // Redirect to login page
+        });
+    } else {
+        console.error('Login button not found!');
+    }
 });

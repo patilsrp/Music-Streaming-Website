@@ -88,23 +88,7 @@ header p {letter-spacing: 0.05em;}
 
 
 /* Show/hide password Font Icon */
-#eye {
-    background: #fff;
-    color: #333;
-  
-    margin: 5.9px 0 0 0;
-    margin-left: -20px;
-    padding: 15px 9px 19px 0px;
-    border-radius: 0px 5px 5px 0px;
-  
-    float: right;
-    position: relative;
-    right: 1%;
-    top: -.2%;
-    z-index: 5;
-    
-    cursor: pointer;
-}
+
 /* inputs form  */
 input[class="form-input"]{
     width: 240px;
