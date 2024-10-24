@@ -34,7 +34,7 @@ if (isset($_SESSION['username'])) {
         <nav>
             <ul>
                 <li><a href="welcome.php">Home</a></li>
-                <li><a href="merch/merchandise.html">Browse</a></li>
+                <li><a href="merch/merchandise.php">Browse</a></li>
                 <li><a href="#">Add Songs</a></li>
                 <li><a href="music-player/index.html">Radio</a></li>
 

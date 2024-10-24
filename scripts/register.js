@@ -4,17 +4,15 @@ const emailInput = document.getElementById('email');  // Correct the reference
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('pwd');
 
+
 document.addEventListener('DOMContentLoaded', function () {
-    const gmailButton = document.querySelector('button.btnGmail ');
+    const signUpBtn = document.querySelector('.login');
     
-    if (gmailButton) {
-        loginButton.addEventListener('click', function () {
-            window.location.href = 'gmail.php';  // Redirect to login page
-        });
-    } else {
-        console.error('Login button not found!');
-    }
+    signUpBtn.addEventListener('click', function () {
+        window.location.href = 'login.html';
+    });
 });
+    
 // Ensure the form is correctly selected
 if (form) {
     // Form validation and submission to the backend (signup.php)
