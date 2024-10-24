@@ -1,18 +1,18 @@
 /* styles/main.css */
 
 /* Reset default browser styles */
-body{
-    background: url(../images/headphones.png);
-    background-size: cover; /* This ensures the image covers the entire background */
-
+body {
+    background-image: url('../images/headphones.png'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-
-}
-h1, h2, h3, p, ul, li {
-    margin: 0;
-    padding: 0;
-
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    min-height: 100vh; /* Ensure the body fills the viewport */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header styles */
@@ -24,24 +24,27 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
- 
 }
+
 .material-symbols-rounded {
     font-family: 'Material Symbols Rounded', sans-serif;
 }
 
 .logo {
     font-size: 1.5rem;
+    margin-right: 20px;
 }
 
-  
 .search-bar {
+    margin-left: 20px;
     display: flex;
+    align-items: center;
 }
 
 .search-bar input[type="text"] {
     padding: 5px;
     margin-right: 5px;
+    aria-label:"Search";
 }
 
 nav ul {
@@ -55,24 +58,57 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #e0e0e0;
+    aria-label:"Navigation Link";
 }
 
 /* Hero Section styles */
 .hero {
     text-align: center;
-    padding: 50px 0;
+    padding: 5vw 0;
 }
 
 /* Main Content Area styles */
-main {
-    padding: 20px;
+/* Browse Section (Horizontal Genre List) */
+.browse-section,.featured-playlist {
+    margin-bottom: 40px;
 }
 
-/* Sidebar styles (Optional) 
-.sidebar {
-    /* Styles for sidebar */
+.genre-grid,.playlist-grid {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding-left: 20px; /* Adds padding at the start */
+    padding-right: 20px; /* Adds padding at the end */
+    gap: 15px; /* Space between genre items */
+    scroll-snap-type: x mandatory; /* Snapping effect for horizontal scroll */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    scroll-behavior: smooth;
+}
 
+.genre-item,.playlist-item {
+    flex: 0 0 auto; /* Prevents items from stretching or shrinking */
+    scroll-snap-align: start; /* Snaps each item to the start of the container */
+    text-align: center;
+}
+.genre-grid::-webkit-scrollbar,.playlist-grid::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, and Opera */
+}
+.genre-item img,.playlist-item img {
+    width: 100px; /* Set a more compact size for genre images */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.genre-item h3,.playlist-item h3  {
+    font-size: 1rem;
+    margin-top: 0;
+}
+.genre-item img:hover, .playlist-item img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    transition: transform 0.3s ease;
+}
 
 
 /* Footer styles */
@@ -80,14 +116,15 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
+    padding: 10px 0;
+    flex-shrink: 0;
     width: 100%;
 }
 
 footer ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 footer ul li {
@@ -99,6 +136,7 @@ footer ul li a {
     text-decoration: none;
     color: #fff;
 }
+
 /* CSS for the dropdown menu */
 .dropdown {
     position: relative;
@@ -126,4 +164,44 @@ footer ul li a {
 
 .dropdown-content a:hover {
     background-color: #f1f1f1;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.sidebar-toggle:hover {
+    background-color: #444; /* Darker on hover */
+}
+
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
+}
+
+/* Hide or resize profile info in collapsed state */
+.sidebar.closed .profile-pic {
+    width: 40px;
+    height: 40px;
+}
+
+.sidebar.closed .user-name {
+    display: none; /* Hide user name in collapsed view */
+}
+
+/* You can also hide the text inside nav links in the collapsed state */
+.sidebar.closed .profile-nav ul li a {
+    font-size: 0;
 }
