@@ -18,4 +18,13 @@ signUpBtn.addEventListener('click', function () {
 });
 
 
+
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const forgotPassBtn = document.querySelector('.frgt-pass');
+  
+  forgotPassBtn.addEventListener('click', function () {
+      window.location.href = 'forgotpass.php';
+  });
 });
