@@ -36,7 +36,7 @@ if (isset($_SESSION['username'])) {
                 <li><a href="welcome.php">Home</a></li>
                 <li><a href="merch/merchandise.php">Browse</a></li>
                 <li><a href="#">Add Songs</a></li>
-                <li><a href="music-player/index.html">Radio</a></li>
+                <li><a href="musicplayer/index.html">Radio</a></li>
 
                 <li class="dropdown">
                     <a href="#">Account</a>
