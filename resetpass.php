@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $new_password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
-    // Check if the passwords match and apply complexity rules
-    if ($new_password === $password_confirm && strlen($new_password) >= 8 && preg_match('/[A-Z]/', $new_password) && preg_match('/[0-9]/', $new_password)) {
+    // Check if the passwords match (without complexity requirements)
+    if ($new_password === $password_confirm) {
         // Verify the reset token and expiry in PHP
         $stmt = $conn->prepare("SELECT reset_token, token_expiry FROM users WHERE reset_token = :token");
         $stmt->bindParam(':token', $token);
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'Invalid or expired token.';
         }
     } else {
-        echo 'Passwords do not match or do not meet complexity requirements.';
+        echo 'Passwords do not match.';
     }
 } elseif (isset($_GET['token'])) {
     $token = $_GET['token'];
